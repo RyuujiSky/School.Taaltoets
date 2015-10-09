@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=w
+comment0.target=ToetsModel(ToetsWorld)
+comment1.params=
+comment1.target=Vraag\ getVragen()
+comment2.params=i
+comment2.target=java.lang.String\ getImages(int)
+numComments=3

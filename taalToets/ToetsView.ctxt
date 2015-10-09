@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=w
+comment0.target=ToetsView(ToetsWorld)
+comment1.params=
+comment1.target=void\ wisScherm()
+comment2.params=knop\ logo
+comment2.target=void\ toonStartScherm(StartKnop,\ Logo)
+comment3.params=klok
+comment3.target=void\ toonToetsScherm(Klok)
+comment4.params=
+comment4.target=void\ toonEindScherm()
+comment5.params=naam\ x\ y
+comment5.target=void\ toonPlaatjes(java.lang.String,\ int,\ int)
+comment6.params=naam
+comment6.target=void\ toonWoord(java.lang.String)
+numComments=7

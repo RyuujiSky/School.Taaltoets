@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=v\ p
+comment0.target=Vraag(java.lang.String,\ java.lang.String)
+comment1.params=
+comment1.target=java.lang.String\ getVraag()
+comment2.params=
+comment2.target=java.lang.String\ getAntwoord()
+comment3.params=gegevenAntwoord
+comment3.target=void\ zetAntwoord(java.lang.String)
+comment4.params=
+comment4.target=boolean\ geefResultaat()
+comment5.params=
+comment5.target=java.lang.String\ getImg()
+numComments=6

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=prefix
+comment0.target=Text(java.lang.String)
+comment1.params=caption
+comment1.target=void\ setCaption(java.lang.String)
+comment2.params=
+comment2.target=void\ updateImage()
+numComments=3
