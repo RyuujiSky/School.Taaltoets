@@ -5,9 +5,10 @@ public class ToetsView
 {
     // instance variables - replace the example below with your own
     private ToetsWorld w;
-    
+    private String n;
+    private int teller = 0;
+    private int t = 1;
 
-    
     public ToetsView(ToetsWorld w)
     {
         this.w = w;
@@ -22,7 +23,7 @@ public class ToetsView
     public void toonStartScherm(StartKnop knop,Logo logo)
     {
         this.wisScherm();
-        this.w.addObject(new Text("Vul je naam in en klik daarna op Toets starten"),(int)this.w.getWidth()/2+50, 250);
+        this.w.addObject(new Text("Druk op toets Starten"),(int)this.w.getWidth()/2, 250);
         this.w.addObject(knop, this.w.getWidth()/2,this.w.getHeight()/2+150);
         this.w.addObject(logo, this.w.getWidth()/2,this.w.getHeight()/2-200);
         
@@ -45,8 +46,10 @@ public class ToetsView
         this.w.addObject(new Kaart("images/kaart/"+naam),x,y);
     }
     
-    public void toonWoord(String naam)
+    public void toonWoord(Text woord)
     {
-        this.w.addObject(new Text(naam),(int)this.w.getWidth()/2,(int)this.w.getHeight()/2);
+        //this.w.addObject(new Text(naam,100),(int)this.w.getWidth()/2,(int)this.w.getHeight()/2);
+        w.addObject(woord,(int)this.w.getWidth()/2,(int)this.w.getHeight()/2);
     }
+
 }

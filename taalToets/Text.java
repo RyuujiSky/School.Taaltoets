@@ -5,27 +5,44 @@ import java.awt.Font;
 public class Text extends Actor
 {
   private String text;
+  private int size;
   
-  public Text(String prefix)
+  public Text(String t,int s)
   {
-      this.text=prefix;
+      this.text=t;
+      this.size=s;
       updateImage();
   }
   
-  public void setCaption(String caption)
+   public Text(String t)
   {
-     text = caption;
+      this.text=t;
+      this.size=20;
+      updateImage();
+  }
+  
+  public void setText(String t,int s)
+  {
+     this.text = t;
+     this.size = s;
      updateImage();
   }
-    
+  
+    public void setText(String t)
+  {
+     this.text = t;
+     updateImage();
+  }
+
   private void updateImage()
   {
-      GreenfootImage image = new GreenfootImage((text.length()+2)*8,18);
+    GreenfootImage image = new GreenfootImage(this.text,this.size,Color.BLACK,null);
+    setImage(image);
+  }
+  
+  private void clearImage()
+  {
+      GreenfootImage image = new GreenfootImage(this.text,this.size,Color.BLACK,null);
       image.clear();
-        
-      image.setFont(new Font("Courier",Font.BOLD,14));
-      image.setColor(Color.BLACK);
-      image.drawString(text,1,14);
-      this.setImage(image);
   }
 }

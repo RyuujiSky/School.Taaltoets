@@ -12,4 +12,5 @@ public class Kaart extends Actor
   {
     this.setImage(img);
   }
+
 }

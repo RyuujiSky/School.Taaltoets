@@ -10,6 +10,9 @@ public class ToetsWorld extends World
     private Logo myLogo;
     private ResetKnop myResetKnop;
     private ToetsModel myModel;
+    private Kaart myKaart;
+    private int teller=0;
+    private Text woord;
     
     public ToetsWorld()
     {    
@@ -32,9 +35,14 @@ public class ToetsWorld extends World
                     reageerOpStart();
                     break;
             case PLAY:
-                    reageerOpToonVragen();
-                    reageerOpToonPlaatjes();
                     reageerOpKlok();
+                    //reageerOpToonVragen();
+                   if(Greenfoot.mouseClicked(this))
+                   {
+                       teller++;
+                       woord.setText(myModel.getVragen(teller));
+                       myView.toonWoord(woord);
+                   }
                     break;
             case END:  
                    
@@ -49,6 +57,8 @@ public class ToetsWorld extends World
         {
             this.myToetsStatus=ToetsStatus.PLAY;
             this.myView.toonToetsScherm(myKlok);
+            reageerOpToonPlaatjes();
+            reageerOpToonVragen();
             this.myKlok.startKlok();
         }
     }
@@ -60,15 +70,15 @@ public class ToetsWorld extends World
         {
             this.myToetsStatus=ToetsStatus.END;
             this.myView.toonEindScherm();
-        }
-        
+        }        
     }
     
     public void reageerOpToonVragen()
     {
-       myView.toonWoord("test");
+        this.woord = new Text(myModel.getVragen(teller),100);
+        myView.toonWoord(this.woord);
     }
-    
+
     public void reageerOpToonPlaatjes()
     {
         myView.toonPlaatjes(myModel.getImages(0),175,100);

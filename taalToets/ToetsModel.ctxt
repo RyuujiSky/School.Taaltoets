@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.params=w
 comment0.target=ToetsModel(ToetsWorld)
-comment1.params=
-comment1.target=Vraag\ getVragen()
+comment1.params=i
+comment1.target=java.lang.String\ getVragen(int)
 comment2.params=i
 comment2.target=java.lang.String\ getImages(int)
-numComments=3
+comment3.params=
+comment3.target=void\ checkMuisKlik()
+numComments=4

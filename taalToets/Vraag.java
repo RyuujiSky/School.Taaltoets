@@ -23,14 +23,29 @@ public class Vraag extends Actor
     {
         return this.vraag;
     }
+    
     public String getAntwoord()
     {
         return this.antwoord;
     }
+    
+    public boolean click()
+    {
+        if(Greenfoot.mouseClicked(this))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
     public void zetAntwoord(String gegevenAntwoord)
     {
         this.antwoord = gegevenAntwoord;
     }
+    
     public boolean geefResultaat()
     {
         if (vraag.equals(antwoord))
@@ -43,6 +58,7 @@ public class Vraag extends Actor
         }
         
     }
+    
     public String getImg()
     {
         return this.img;

@@ -11,22 +11,31 @@ public class ToetsModel
     {
         this.w = w;
     }
-    public Vraag getVragen()
+    
+    public String getVragen(int i)
     {
-        int j=0;
-        for(int i=0; i<10; i++)
-        {
-            vragen[i].getVraag();
-            j++;
-        }
-        return vragen[1];
+       String v;
+       v=vragen[i].getVraag();
+       return v;
     }
+    
     public String getImages(int i)
     {
            String img;
            img = vragen[i].getImg();
            return img;
            
+    }
+    
+    public void checkMuisKlik()
+    {
+        for(int i=0;i<10;i++)
+        {
+            if(vragen[i].click())
+            {
+                //vragen[i].zetAntwoord()
+            }
+        }
     }
 
 }
