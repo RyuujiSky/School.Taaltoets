@@ -20,6 +20,7 @@ public class ToetsModel
             j++;
         }
         return vragen[1];
+        //test
     }
     public String getImages(int i)
     {
