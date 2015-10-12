@@ -25,6 +25,7 @@ public class ToetsWorld extends World
         myModel = new ToetsModel(this);
         this.myToetsStatus=ToetsStatus.START;
         this.myView.toonStartScherm(myStartKnop,myLogo);
+        myModel.shuffleArray();
     }
     
     public void act()

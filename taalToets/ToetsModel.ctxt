@@ -7,4 +7,6 @@ comment2.params=i
 comment2.target=java.lang.String\ getImages(int)
 comment3.params=
 comment3.target=void\ checkMuisKlik()
-numComments=4
+comment4.params=
+comment4.target=void\ shuffleArray()
+numComments=5

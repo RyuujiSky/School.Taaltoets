@@ -18,7 +18,7 @@ public class Vraag extends Actor
         this.antwoord=this.antwoord;
         this.img=p;
     }
-
+    
     public String getVraag()
     {
         return this.vraag;
