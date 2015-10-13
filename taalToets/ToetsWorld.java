@@ -37,8 +37,7 @@ public class ToetsWorld extends World
                     break;
             case PLAY:
                     reageerOpKlok();
-                    //reageerOpToonVragen();
-                   if(Greenfoot.mouseClicked(this))
+                   if(Greenfoot.mouseClicked(myKaart))
                    {
                        teller++;
                        woord.setText(myModel.getVragen(teller));

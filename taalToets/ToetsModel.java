@@ -34,17 +34,6 @@ public class ToetsModel
            return img;           
     }
     
-    public void checkMuisKlik()
-    {
-        for(int i=0; i<10; i++)
-        {
-            if(vragen[i].click())
-            {
-                //vragen[i].zetAntwoord()
-            }
-        }
-    }
-    
     public void shuffleArray()
     {
         java.util.Collections.shuffle(java.util.Arrays.asList(vragen));
