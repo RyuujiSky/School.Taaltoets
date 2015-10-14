@@ -1,16 +1,26 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Kaart here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Kaart extends Actor
 {
-  public Kaart(String img)
+    private String img;
+    
+  public Kaart(String image)
   {
-    this.setImage(img);
+    this.img = image;
+    this.setImage(this.img);
   }
 
+  public boolean isSelected()
+  {
+      if(Greenfoot.mouseClicked(this))
+      {
+          return true;
+      }
+      return false;
+  }
+  
+  public String getImg()
+  {
+      return this.img;
+  }
 }

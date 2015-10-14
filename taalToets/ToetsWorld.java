@@ -13,7 +13,7 @@ public class ToetsWorld extends World
     private Kaart myKaart;
     private int teller=0;
     private Text woord;
-    
+
     public ToetsWorld()
     {    
         super(800, 600, 1); 
@@ -37,12 +37,13 @@ public class ToetsWorld extends World
                     break;
             case PLAY:
                     reageerOpKlok();
-                   if(Greenfoot.mouseClicked(myKaart))
-                   {
-                       teller++;
-                       woord.setText(myModel.getVragen(teller));
-                       myView.toonWoord(woord);
-                   }
+                    myModel.checkKaarten();
+                  // if(())
+                   //{
+                  //     teller++;
+                  //     woord.setText(myModel.getVragen(teller));
+                  //     myView.toonWoord(woord);
+                  // }
                     break;
             case END:  
                    
@@ -81,15 +82,15 @@ public class ToetsWorld extends World
 
     public void reageerOpToonPlaatjes()
     {
-        myView.toonPlaatjes(myModel.getImages(0),175,100);
-        myView.toonPlaatjes(myModel.getImages(1),325,100);
-        myView.toonPlaatjes(myModel.getImages(2),475,100);
-        myView.toonPlaatjes(myModel.getImages(3),625,100);
-        myView.toonPlaatjes(myModel.getImages(4),100,300);
-        myView.toonPlaatjes(myModel.getImages(5),700,300);
-        myView.toonPlaatjes(myModel.getImages(6),175,500);
-        myView.toonPlaatjes(myModel.getImages(7),325,500);
-        myView.toonPlaatjes(myModel.getImages(8),475,500);
-        myView.toonPlaatjes(myModel.getImages(9),625,500);
+        myView.toonPlaatjes(myModel.getCard(0),175,100);
+        myView.toonPlaatjes(myModel.getCard(1),325,100);
+        myView.toonPlaatjes(myModel.getCard(2),475,100);
+        myView.toonPlaatjes(myModel.getCard(3),625,100);
+        myView.toonPlaatjes(myModel.getCard(4),100,300);
+        myView.toonPlaatjes(myModel.getCard(5),700,300);
+        myView.toonPlaatjes(myModel.getCard(6),175,500);
+        myView.toonPlaatjes(myModel.getCard(7),325,500);
+        myView.toonPlaatjes(myModel.getCard(8),475,500);
+        myView.toonPlaatjes(myModel.getCard(9),625,500);
     }
 }

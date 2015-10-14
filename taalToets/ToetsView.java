@@ -41,9 +41,9 @@ public class ToetsView
         this.w.addObject(new Text("test"),(int)this.w.getWidth()/2+50, 250);
     }
     
-    public void toonPlaatjes(String naam,int x,int y)
+    public void toonPlaatjes(Kaart kaart,int x,int y)
     {
-        this.w.addObject(new Kaart("images/kaart/"+naam),x,y);
+        this.w.addObject(kaart,x,y);
     }
     
     public void toonWoord(Text woord)

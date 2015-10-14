@@ -9,6 +9,7 @@ public class ToetsModel
        new Vraag("Roos","Roos.png"),new Vraag("Vis","Vis.png"),new Vraag("Sok","Sok.png"),new Vraag("Pen","Pen.png")};
       
     private Vraag[] woorden = new Vraag[10];
+    private Kaart[] kaarten = new Kaart[10];
     
     public ToetsModel(ToetsWorld w)
     {
@@ -17,6 +18,11 @@ public class ToetsModel
         for(int i=0; i<10; i++)
         {
             woorden[i]=vragen[i];
+        }
+        
+        for(int i=0; i<10; i++)
+        {
+            kaarten[i]=new Kaart("images/kaart/"+vragen[i].getImg());
         }
     }
     
@@ -27,17 +33,27 @@ public class ToetsModel
        return v;
     }
     
-    public String getImages(int i)
+    public Kaart getCard(int i)
     {
-           String img;
-           img = vragen[i].getImg();
-           return img;           
+           return kaarten[i];           
     }
     
     public void shuffleArray()
     {
         java.util.Collections.shuffle(java.util.Arrays.asList(vragen));
         java.util.Collections.shuffle(java.util.Arrays.asList(woorden));
+        java.util.Collections.shuffle(java.util.Arrays.asList(kaarten));
+    }
+    
+    public void checkKaarten()
+    {
+            for(int i=0; i<10; i++)
+            {
+               if(kaarten[i].isSelected())
+               {
+                   System.out.println("click"+kaarten[i].getImg());
+               }
+            }
     }
 
 }
