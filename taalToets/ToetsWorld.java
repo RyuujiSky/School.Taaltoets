@@ -37,7 +37,6 @@ public class ToetsWorld extends World
                     break;
             case PLAY:
                     reageerOpKlok();
-                    myModel.checkKaarten();
                   // if(())
                    //{
                   //     teller++;
@@ -82,15 +81,6 @@ public class ToetsWorld extends World
 
     public void reageerOpToonPlaatjes()
     {
-        myView.toonPlaatjes(myModel.getCard(0),175,100);
-        myView.toonPlaatjes(myModel.getCard(1),325,100);
-        myView.toonPlaatjes(myModel.getCard(2),475,100);
-        myView.toonPlaatjes(myModel.getCard(3),625,100);
-        myView.toonPlaatjes(myModel.getCard(4),100,300);
-        myView.toonPlaatjes(myModel.getCard(5),700,300);
-        myView.toonPlaatjes(myModel.getCard(6),175,500);
-        myView.toonPlaatjes(myModel.getCard(7),325,500);
-        myView.toonPlaatjes(myModel.getCard(8),475,500);
-        myView.toonPlaatjes(myModel.getCard(9),625,500);
+       myView.toonPlaatjes();
     }
 }

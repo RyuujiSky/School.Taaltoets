@@ -6,17 +6,15 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Vraag extends Actor
+public class Vraag
 {
     private String vraag;
     private String antwoord;
-    private String img;
     
-    public Vraag(String v,String p)
+    public Vraag(String v)
     {
         this.vraag=v;
         this.antwoord=this.antwoord;
-        this.img=p;
     }
     
     public String getVraag()
@@ -38,18 +36,15 @@ public class Vraag extends Actor
     {
         if (vraag.equals(antwoord))
         {
+            System.out.println("true");
             return true;
         }
         else
         {
+            System.out.println("false");
             return false;
         }
         
-    }
-    
-    public String getImg()
-    {
-        return this.img;
     }
    
 }
