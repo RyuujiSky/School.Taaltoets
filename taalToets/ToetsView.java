@@ -17,7 +17,7 @@ public class ToetsView
         
         for(int i=0; i<10; i++)
         {
-           kaarten[i]=new Kaart("images/kaart/"+"hond"+".png");
+           kaarten[i]=new Kaart("images/kaart/"+"Hond"+".png");
         }
         java.util.Collections.shuffle(java.util.Arrays.asList(kaarten));
     }
@@ -51,7 +51,7 @@ public class ToetsView
     
     public void toonPlaatjes()
     {
-        this.w.addObject(kaarten[0].getImg(),175,100);
+        this.w.addObject(kaarten[0],175,100);
         this.w.addObject(kaarten[1],325,100);
         this.w.addObject(kaarten[2],475,100);
         this.w.addObject(kaarten[3],625,100);
