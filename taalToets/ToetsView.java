@@ -10,14 +10,15 @@ public class ToetsView
     private int t = 1;
     
     private Kaart[] kaarten = new Kaart[10];
+    
 
-    public ToetsView(ToetsWorld w)
+    public ToetsView(ToetsWorld w, Vraag vragen)
     {
         this.w = w;
         
         for(int i=0; i<10; i++)
         {
-           kaarten[i]=new Kaart("images/kaart/"+"Hond"+".png");
+           kaarten[i]=new Kaart(vragen[i].getVraag());
         }
         java.util.Collections.shuffle(java.util.Arrays.asList(kaarten));
     }
