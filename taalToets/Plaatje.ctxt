@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=woord
+comment0.target=Plaatje(java.lang.String)
+comment1.params=
+comment1.target=boolean\ isSelected()
+comment2.params=
+comment2.target=java.lang.String\ getWoord()
+comment3.params=
+comment3.target=java.lang.String\ getPlaatje()
+numComments=4

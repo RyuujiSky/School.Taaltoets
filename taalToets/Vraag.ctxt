@@ -8,5 +8,5 @@ comment2.target=java.lang.String\ getAntwoord()
 comment3.params=gegevenAntwoord
 comment3.target=void\ zetAntwoord(java.lang.String)
 comment4.params=
-comment4.target=boolean\ geefResultaat()
+comment4.target=boolean\ isGoed()
 numComments=5

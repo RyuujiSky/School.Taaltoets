@@ -1,8 +1,14 @@
 #BlueJ class context
 comment0.params=w
 comment0.target=ToetsModel(ToetsWorld)
-comment1.params=i
-comment1.target=java.lang.String\ getVragen(int)
+comment1.params=
+comment1.target=Vraag[]\ getVragen()
 comment2.params=
-comment2.target=void\ shuffleArray()
-numComments=3
+comment2.target=java.lang.String\ getVolgendeVraag()
+comment3.params=
+comment3.target=boolean\ isVolgendeVraag()
+comment4.params=woord
+comment4.target=void\ zetAntwoord(java.lang.String)
+comment5.params=
+comment5.target=void\ checkResultaat()
+numComments=6

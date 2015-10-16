@@ -5,33 +5,60 @@ public class ToetsModel
 {
     private ToetsWorld w;
     
-   private Vraag[] vragen = {new Vraag("Boom"),new Vraag("Aap"),new Vraag("Hond"),new Vraag("Kat"), new Vraag("Maan"),new Vraag("Huis"),
-       new Vraag("Roos"),new Vraag("Vis"),new Vraag("Sok"),new Vraag("Pen")};
+   private String[] woorden = {new String("Boom"),new String("Aap"),new String("Hond"),new String("Kat"), new String("Maan"),new String("Huis"),
+       new String("Roos"),new String("Vis"),new String("Sok"),new String("Pen")};
       
-    private Vraag[] woorden = new Vraag[10]; 
+    private Vraag[] vragen = new Vraag[10];
+    
+    private int index= -1;
     public ToetsModel(ToetsWorld w)
     {
         this.w = w;
-        
+        java.util.Collections.shuffle(java.util.Arrays.asList(woorden));
         for(int i=0; i<10; i++)
         {
-            woorden[i]=vragen[i];
+            vragen[i] = new Vraag(woorden[i]);
+        }
+        java.util.Collections.shuffle(java.util.Arrays.asList(vragen));
+    }
+    
+    public Vraag[] getVragen()
+    {
+        return vragen;
+    }
+    
+    public String getVolgendeVraag()
+    {
+            this.index++;
+            System.out.println(index);
+            return vragen[index].getVraag();
+    }
+    
+    public boolean isVolgendeVraag()
+    {
+        if(index<9)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
     
-    public String getVragen(int i)
+    public void zetAntwoord(String woord)
     {
-       String v;
-       v=woorden[i].getVraag();
-       return v;
+        vragen[index].zetAntwoord(woord);
+        vragen[index].isGoed();
     }
     
-    public void shuffleArray()
+    public void checkResultaat()
     {
-        java.util.Collections.shuffle(java.util.Arrays.asList(vragen));
-        java.util.Collections.shuffle(java.util.Arrays.asList(woorden));
+    
     }
     
-  
-
+   // public String geefResultaat()
+   // {
+   //     
+   // }
 }

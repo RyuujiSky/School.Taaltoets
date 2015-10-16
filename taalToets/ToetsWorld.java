@@ -10,8 +10,7 @@ public class ToetsWorld extends World
     private Logo myLogo;
     private ResetKnop myResetKnop;
     private ToetsModel myModel;
-    private Kaart myKaart;
-    private int teller=0;
+    private Plaatje myPlaatje;
     private Text woord;
 
     public ToetsWorld()
@@ -25,7 +24,7 @@ public class ToetsWorld extends World
         myModel = new ToetsModel(this);
         this.myToetsStatus=ToetsStatus.START;
         this.myView.toonStartScherm(myStartKnop,myLogo);
-        myModel.shuffleArray();
+        woord = new Text(myModel.getVolgendeVraag(),100);
     }
     
     public void act()
@@ -36,13 +35,8 @@ public class ToetsWorld extends World
                     reageerOpStart();
                     break;
             case PLAY:
+                    reageerOpklikPlaatje();
                     reageerOpKlok();
-                  // if(())
-                   //{
-                  //     teller++;
-                  //     woord.setText(myModel.getVragen(teller));
-                  //     myView.toonWoord(woord);
-                  // }
                     break;
             case END:  
                    
@@ -57,9 +51,9 @@ public class ToetsWorld extends World
         {
             this.myToetsStatus=ToetsStatus.PLAY;
             this.myView.toonToetsScherm(myKlok);
-            reageerOpToonPlaatjes();
-            reageerOpToonVragen();
-            this.myKlok.startKlok();
+            this.myKlok.startKlok();          
+            myView.toonPlaatjes(myModel.getVragen());
+            myView.toonVraag(woord);
         }
     }
     
@@ -72,15 +66,26 @@ public class ToetsWorld extends World
             this.myView.toonEindScherm();
         }        
     }
-    
-    public void reageerOpToonVragen()
-    {
-        this.woord = new Text(myModel.getVragen(teller),100);
-        myView.toonWoord(this.woord);
-    }
 
-    public void reageerOpToonPlaatjes()
+    public void reageerOpklikPlaatje()
     {
-       myView.toonPlaatjes();
+        if(!myView.getPlaatje().equals(""))
+        {
+            myModel.zetAntwoord(myView.getPlaatje());
+            if(!myModel.isVolgendeVraag()==true)
+            {
+                this.myToetsStatus=ToetsStatus.END;
+                this.myView.toonEindScherm();
+            }
+            else
+            {
+                woord.setText(myModel.getVolgendeVraag(),100);
+            }
+        }
+    }
+    
+    public void reageerOpReset()
+    {
+    
     }
 }

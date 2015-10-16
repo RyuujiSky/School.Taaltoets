@@ -5,22 +5,16 @@ public class ToetsView
 {
     // instance variables - replace the example below with your own
     private ToetsWorld w;
-    private String n;
-    private int teller = 0;
-    private int t = 1;
+    //private String n;
+   // private int teller = 0;
+    //private int t = 1;
     
-    private Kaart[] kaarten = new Kaart[10];
+    private Plaatje[] plaatjes = new Plaatje[10];
     
 
-    public ToetsView(ToetsWorld w, Vraag vragen)
+    public ToetsView(ToetsWorld w)
     {
         this.w = w;
-        
-        for(int i=0; i<10; i++)
-        {
-           kaarten[i]=new Kaart(vragen[i].getVraag());
-        }
-        java.util.Collections.shuffle(java.util.Arrays.asList(kaarten));
     }
 
     private void wisScherm()
@@ -47,27 +41,55 @@ public class ToetsView
     public void toonEindScherm()
     {
         this.wisScherm();
-        this.w.addObject(new Text("test"),(int)this.w.getWidth()/2+50, 250);
+        this.w.addObject(new Text("vraag 1"),(int)this.w.getWidth()/2, 100);
+        this.w.addObject(new Text("vraag 2"),(int)this.w.getWidth()/2, 125);
+        this.w.addObject(new Text("vraag 3"),(int)this.w.getWidth()/2, 150);
+        this.w.addObject(new Text("vraag 4"),(int)this.w.getWidth()/2, 175);
+        this.w.addObject(new Text("vraag 5"),(int)this.w.getWidth()/2, 200);
+        this.w.addObject(new Text("vraag 6"),(int)this.w.getWidth()/2, 225);
+        this.w.addObject(new Text("vraag 7"),(int)this.w.getWidth()/2, 250);
+        this.w.addObject(new Text("vraag 8"),(int)this.w.getWidth()/2, 275);
+        this.w.addObject(new Text("vraag 9"),(int)this.w.getWidth()/2, 300);
+        this.w.addObject(new Text("vraag 10"),(int)this.w.getWidth()/2, 325);
+        //this.w.addObject(knop, this.w.getWidth()/2,400);
+        //this.w.addObject(logo, this.w.getWidth()/2+200,400);
     }
     
-    public void toonPlaatjes()
+    public void toonPlaatjes(Vraag[] vragen)
     {
-        this.w.addObject(kaarten[0],175,100);
-        this.w.addObject(kaarten[1],325,100);
-        this.w.addObject(kaarten[2],475,100);
-        this.w.addObject(kaarten[3],625,100);
-        this.w.addObject(kaarten[4],100,300);
-        this.w.addObject(kaarten[5],700,300);
-        this.w.addObject(kaarten[6],175,500);
-        this.w.addObject(kaarten[7],325,500);
-        this.w.addObject(kaarten[8],475,500);
-        this.w.addObject(kaarten[9],625,500);
+        for(int i=0; i<10; i++)
+        {
+           plaatjes[i]=new Plaatje(vragen[i].getVraag());
+        }
+        java.util.Collections.shuffle(java.util.Arrays.asList(plaatjes));
+        
+        this.w.addObject(plaatjes[0],175,100);
+        this.w.addObject(plaatjes[1],325,100);
+        this.w.addObject(plaatjes[2],475,100);
+        this.w.addObject(plaatjes[3],625,100);
+        this.w.addObject(plaatjes[4],100,300);
+        this.w.addObject(plaatjes[5],700,300);
+        this.w.addObject(plaatjes[6],175,500);
+        this.w.addObject(plaatjes[7],325,500);
+        this.w.addObject(plaatjes[8],475,500);
+        this.w.addObject(plaatjes[9],625,500);
     }
     
-    public void toonWoord(Text woord)
+    public void toonVraag(Text woord)
     {
-        //this.w.addObject(new Text(naam,100),(int)this.w.getWidth()/2,(int)this.w.getHeight()/2);
         w.addObject(woord,(int)this.w.getWidth()/2,(int)this.w.getHeight()/2);
+    }
+    
+    public String getPlaatje()
+    {
+        for(int i=0; i<10; i++)
+        {
+            if(plaatjes[i].isSelected())
+            {
+                return plaatjes[i].getWoord();
+            }
+        }
+        return "";
     }
 
 }

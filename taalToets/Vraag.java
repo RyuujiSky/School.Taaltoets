@@ -32,19 +32,17 @@ public class Vraag
         this.antwoord = gegevenAntwoord;
     }
     
-    public boolean geefResultaat()
+    public boolean isGoed()
     {
         if (vraag.equals(antwoord))
         {
-            System.out.println("true");
             return true;
         }
         else
         {
-            System.out.println("false");
             return false;
         }
         
     }
-   
+    
 }
