@@ -55,14 +55,6 @@ public class ToetsView
             {
                 res = "✘";
             }
-            if(vragen[i].getAntwoord().equals(""))
-            {
-                ant = "";
-            }
-            else
-            {
-                ant = vragen[i].getAntwoord();
-            }
             this.w.addObject(new Text("vraag "+t),200,h);
             this.w.addObject(new Text(vragen[i].getAntwoord()),350,h);
             this.w.addObject(new Text(vragen[i].getVraag()),500,h);
