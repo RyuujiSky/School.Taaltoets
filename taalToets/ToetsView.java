@@ -37,6 +37,8 @@ public class ToetsView
         int h=100;
         int t=1;
         String res;
+        String ant;
+        String vrg;
         this.wisScherm();
         this.w.addObject(new Text("vraag "),200,75);
             this.w.addObject(new Text("gegeven antwoord"),350,75);
@@ -52,6 +54,14 @@ public class ToetsView
             else
             {
                 res = "✘";
+            }
+            if(vragen[i].getAntwoord().equals(""))
+            {
+                ant = "";
+            }
+            else
+            {
+                ant = vragen[i].getAntwoord();
             }
             this.w.addObject(new Text("vraag "+t),200,h);
             this.w.addObject(new Text(vragen[i].getAntwoord()),350,h);

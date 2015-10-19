@@ -51,21 +51,4 @@ public class ToetsModel
         vragen[index].zetAntwoord(woord);
         vragen[index].isGoed();
     }
-    
-/*    public boolean getResultaat()
-    {
-        return vragen[i].isGoed();
-    }
-    
-    public String getVraag()
-    {
-        return vragen[i].getVraag();
-    }
-    
-    public String getAntwoord()
-    {
-        return vragen[i].getAntwoord();
-    }*/
-    
-
 }

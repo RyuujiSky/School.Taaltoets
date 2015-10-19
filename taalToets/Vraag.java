@@ -24,7 +24,15 @@ public class Vraag
     
     public String getAntwoord()
     {
-        return this.antwoord;
+        if(this.antwoord == null)
+        {
+            return "";
+        }
+        else
+        {
+            return this.antwoord;
+    
+        }
     }
     
     public void zetAntwoord(String gegevenAntwoord)
