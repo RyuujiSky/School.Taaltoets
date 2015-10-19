@@ -8,10 +8,10 @@ public class ToetsWorld extends World
     private ToetsStatus myToetsStatus;
     private ToetsView  myView;
     private Logo myLogo;
+    private Logo myLogo2;
     private ResetKnop myResetKnop;
     private ToetsModel myModel;
-    private Kaart myKaart;
-    private int teller=0;
+    private Plaatje myPlaatje;
     private Text woord;
 
     public ToetsWorld()
@@ -20,12 +20,13 @@ public class ToetsWorld extends World
         myKlok=new Klok();
         myStartKnop=new StartKnop();
         myResetKnop=new ResetKnop();
-        myLogo=new Logo();
+        myLogo=new Logo(250,200);
+        myLogo2=new Logo(150,100);
         myView = new ToetsView(this);
         myModel = new ToetsModel(this);
         this.myToetsStatus=ToetsStatus.START;
         this.myView.toonStartScherm(myStartKnop,myLogo);
-        myModel.shuffleArray();
+        woord = new Text(myModel.getVolgendeVraag(),100);
     }
     
     public void act()
@@ -36,17 +37,11 @@ public class ToetsWorld extends World
                     reageerOpStart();
                     break;
             case PLAY:
+                    reageerOpklikPlaatje();
                     reageerOpKlok();
-                    myModel.checkKaarten();
-                  // if(())
-                   //{
-                  //     teller++;
-                  //     woord.setText(myModel.getVragen(teller));
-                  //     myView.toonWoord(woord);
-                  // }
                     break;
             case END:  
-                   
+                   reageerOpReset();
                     break;
             
         }      
@@ -58,9 +53,9 @@ public class ToetsWorld extends World
         {
             this.myToetsStatus=ToetsStatus.PLAY;
             this.myView.toonToetsScherm(myKlok);
-            reageerOpToonPlaatjes();
-            reageerOpToonVragen();
-            this.myKlok.startKlok();
+            this.myKlok.startKlok();          
+            myView.toonPlaatjes(myModel.getVragen());
+            myView.toonVraag(woord);
         }
     }
     
@@ -69,28 +64,36 @@ public class ToetsWorld extends World
         myKlok.toonTijd();
         if(myKlok.isTijdVoorbij())
         {
+            Vraag[] vragen = myModel.getVragen();
             this.myToetsStatus=ToetsStatus.END;
-            this.myView.toonEindScherm();
+            this.myView.toonEindScherm(vragen,myResetKnop,myLogo2);
         }        
     }
-    
-    public void reageerOpToonVragen()
-    {
-        this.woord = new Text(myModel.getVragen(teller),100);
-        myView.toonWoord(this.woord);
-    }
 
-    public void reageerOpToonPlaatjes()
+    public void reageerOpklikPlaatje()
     {
-        myView.toonPlaatjes(myModel.getCard(0),175,100);
-        myView.toonPlaatjes(myModel.getCard(1),325,100);
-        myView.toonPlaatjes(myModel.getCard(2),475,100);
-        myView.toonPlaatjes(myModel.getCard(3),625,100);
-        myView.toonPlaatjes(myModel.getCard(4),100,300);
-        myView.toonPlaatjes(myModel.getCard(5),700,300);
-        myView.toonPlaatjes(myModel.getCard(6),175,500);
-        myView.toonPlaatjes(myModel.getCard(7),325,500);
-        myView.toonPlaatjes(myModel.getCard(8),475,500);
-        myView.toonPlaatjes(myModel.getCard(9),625,500);
+        if(!myView.getPlaatje().equals(""))
+        {
+            Vraag[] vragen = myModel.getVragen();
+            myModel.zetAntwoord(myView.getPlaatje());
+            if(!myModel.isVolgendeVraag()==true)
+            {
+                this.myToetsStatus=ToetsStatus.END;
+                this.myView.toonEindScherm(vragen,myResetKnop,myLogo2);
+            }
+            else
+            {
+                woord.setText(myModel.getVolgendeVraag(),100);
+            }
+        }
+    }
+    
+    public void reageerOpReset()
+    {
+        if(myResetKnop.isSelected())
+        {
+            this.myToetsStatus=ToetsStatus.START;
+            Greenfoot.setWorld(new ToetsWorld());
+        }
     }
 }
