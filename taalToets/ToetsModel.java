@@ -11,6 +11,7 @@ public class ToetsModel
     private Vraag[] vragen = new Vraag[10];
     
     private int index= -1;
+    private int i=0;
     public ToetsModel(ToetsWorld w)
     {
         this.w = w;
@@ -30,7 +31,6 @@ public class ToetsModel
     public String getVolgendeVraag()
     {
             this.index++;
-            System.out.println(index);
             return vragen[index].getVraag();
     }
     
@@ -52,13 +52,20 @@ public class ToetsModel
         vragen[index].isGoed();
     }
     
-    public void checkResultaat()
+/*    public boolean getResultaat()
     {
-    
+        return vragen[i].isGoed();
     }
     
-   // public String geefResultaat()
-   // {
-   //     
-   // }
+    public String getVraag()
+    {
+        return vragen[i].getVraag();
+    }
+    
+    public String getAntwoord()
+    {
+        return vragen[i].getAntwoord();
+    }*/
+    
+
 }

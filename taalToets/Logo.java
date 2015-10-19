@@ -8,9 +8,10 @@ import greenfoot.*;
  */
 public class Logo extends Actor
 {
-    public Logo()
+    public Logo(int w, int h)
     {
         this.setImage("images/ark.gif");
-        this.getImage().scale(250,200 );
+        this.getImage().scale(w,h );
     }
+    
 }

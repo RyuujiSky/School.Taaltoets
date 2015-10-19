@@ -9,6 +9,4 @@ comment3.params=
 comment3.target=boolean\ isVolgendeVraag()
 comment4.params=woord
 comment4.target=void\ zetAntwoord(java.lang.String)
-comment5.params=
-comment5.target=void\ checkResultaat()
-numComments=6
+numComments=5

@@ -8,6 +8,7 @@ public class ToetsWorld extends World
     private ToetsStatus myToetsStatus;
     private ToetsView  myView;
     private Logo myLogo;
+    private Logo myLogo2;
     private ResetKnop myResetKnop;
     private ToetsModel myModel;
     private Plaatje myPlaatje;
@@ -19,7 +20,8 @@ public class ToetsWorld extends World
         myKlok=new Klok();
         myStartKnop=new StartKnop();
         myResetKnop=new ResetKnop();
-        myLogo=new Logo();
+        myLogo=new Logo(250,200);
+        myLogo2=new Logo(150,100);
         myView = new ToetsView(this);
         myModel = new ToetsModel(this);
         this.myToetsStatus=ToetsStatus.START;
@@ -39,7 +41,7 @@ public class ToetsWorld extends World
                     reageerOpKlok();
                     break;
             case END:  
-                   
+                   reageerOpReset();
                     break;
             
         }      
@@ -62,8 +64,9 @@ public class ToetsWorld extends World
         myKlok.toonTijd();
         if(myKlok.isTijdVoorbij())
         {
+            Vraag[] vragen = myModel.getVragen();
             this.myToetsStatus=ToetsStatus.END;
-            this.myView.toonEindScherm();
+            this.myView.toonEindScherm(vragen,myResetKnop,myLogo2);
         }        
     }
 
@@ -71,11 +74,12 @@ public class ToetsWorld extends World
     {
         if(!myView.getPlaatje().equals(""))
         {
+            Vraag[] vragen = myModel.getVragen();
             myModel.zetAntwoord(myView.getPlaatje());
             if(!myModel.isVolgendeVraag()==true)
             {
                 this.myToetsStatus=ToetsStatus.END;
-                this.myView.toonEindScherm();
+                this.myView.toonEindScherm(vragen,myResetKnop,myLogo2);
             }
             else
             {
@@ -86,6 +90,10 @@ public class ToetsWorld extends World
     
     public void reageerOpReset()
     {
-    
+        if(myResetKnop.isSelected())
+        {
+            this.myToetsStatus=ToetsStatus.START;
+            Greenfoot.setWorld(new ToetsWorld());
+        }
     }
 }

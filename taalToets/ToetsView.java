@@ -5,13 +5,8 @@ public class ToetsView
 {
     // instance variables - replace the example below with your own
     private ToetsWorld w;
-    //private String n;
-   // private int teller = 0;
-    //private int t = 1;
-    
     private Plaatje[] plaatjes = new Plaatje[10];
     
-
     public ToetsView(ToetsWorld w)
     {
         this.w = w;
@@ -29,7 +24,6 @@ public class ToetsView
         this.w.addObject(new Text("Druk op toets Starten"),(int)this.w.getWidth()/2, 250);
         this.w.addObject(knop, this.w.getWidth()/2,this.w.getHeight()/2+150);
         this.w.addObject(logo, this.w.getWidth()/2,this.w.getHeight()/2-200);
-        
     }
     
     public void toonToetsScherm(Klok klok)
@@ -38,21 +32,37 @@ public class ToetsView
         this.w.addObject(klok,750,50);
     }
     
-    public void toonEindScherm()
+    public void toonEindScherm(Vraag[] vragen, ResetKnop knop,Logo logo)
     {
+        int h=100;
+        int t=1;
+        String res;
         this.wisScherm();
-        this.w.addObject(new Text("vraag 1"),(int)this.w.getWidth()/2, 100);
-        this.w.addObject(new Text("vraag 2"),(int)this.w.getWidth()/2, 125);
-        this.w.addObject(new Text("vraag 3"),(int)this.w.getWidth()/2, 150);
-        this.w.addObject(new Text("vraag 4"),(int)this.w.getWidth()/2, 175);
-        this.w.addObject(new Text("vraag 5"),(int)this.w.getWidth()/2, 200);
-        this.w.addObject(new Text("vraag 6"),(int)this.w.getWidth()/2, 225);
-        this.w.addObject(new Text("vraag 7"),(int)this.w.getWidth()/2, 250);
-        this.w.addObject(new Text("vraag 8"),(int)this.w.getWidth()/2, 275);
-        this.w.addObject(new Text("vraag 9"),(int)this.w.getWidth()/2, 300);
-        this.w.addObject(new Text("vraag 10"),(int)this.w.getWidth()/2, 325);
-        //this.w.addObject(knop, this.w.getWidth()/2,400);
-        //this.w.addObject(logo, this.w.getWidth()/2+200,400);
+        this.w.addObject(new Text("vraag "),200,75);
+            this.w.addObject(new Text("gegeven antwoord"),350,75);
+            this.w.addObject(new Text("juiste antwoord"),500,75);
+            this.w.addObject(new Text("resultaat"),650,75);
+            this.w.addObject(new Text("-----------------------------------------------------------------------------------------------------------------------------------------------"),(int)this.w.getWidth()/2,85);
+        for(int i=0; i<10; i++)
+        {
+            if(vragen[i].isGoed()==true)
+            {
+                res = "✔";
+            }
+            else
+            {
+                res = "✘";
+            }
+            this.w.addObject(new Text("vraag "+t),200,h);
+            this.w.addObject(new Text(vragen[i].getAntwoord()),350,h);
+            this.w.addObject(new Text(vragen[i].getVraag()),500,h);
+            this.w.addObject(new Text(res),650,h);
+            h = h+25;
+            t++;
+        }
+        this.w.addObject(new Text("-----------------------------------------------------------------------------------------------------------------------------------------------"),(int)this.w.getWidth()/2,335);
+        this.w.addObject(knop, this.w.getWidth()/2,500);
+        this.w.addObject(logo, this.w.getWidth()/2+300,500);
     }
     
     public void toonPlaatjes(Vraag[] vragen)
