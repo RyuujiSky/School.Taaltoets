@@ -15,7 +15,6 @@ public class ToetsModel
     private Vraag[] vragen = new Vraag[10];
     
     private int index= -1;
-    private int i=0;
     public ToetsModel(ToetsWorld w)
     {
         this.w = w;
