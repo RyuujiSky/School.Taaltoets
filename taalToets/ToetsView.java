@@ -36,9 +36,8 @@ public class ToetsView
     {
         int h=100;
         int t=1;
+        int cijfer=0;
         String res;
-        String ant;
-        String vrg;
         this.wisScherm();
         this.w.addObject(new Text("vraag "),200,75);
             this.w.addObject(new Text("gegeven antwoord"),350,75);
@@ -50,6 +49,7 @@ public class ToetsView
             if(vragen[i].isGoed()==true)
             {
                 res = "✔";
+                cijfer++;
             }
             else
             {
@@ -62,6 +62,7 @@ public class ToetsView
             h = h+25;
             t++;
         }
+        this.w.addObject(new Text("Cijfer: "+cijfer), this.w.getWidth()/2,350);
         this.w.addObject(new Text("-----------------------------------------------------------------------------------------------------------------------------------------------"),(int)this.w.getWidth()/2,335);
         this.w.addObject(knop, this.w.getWidth()/2,500);
         this.w.addObject(logo, this.w.getWidth()/2+300,500);

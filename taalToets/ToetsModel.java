@@ -8,7 +8,7 @@ public class ToetsModel
    private String[] woorden = {new String("Boom"),new String("Aap"),new String("Hond"),new String("Kat"), new String("Maan"),new String("Huis"),
        new String("Roos"),new String("Vis"),new String("Sok"),new String("Pen"),new String("Ball"),new String("Bank"),new String("Boek"),new String("Boer"),
        new String("Bos"),new String("Bus"),new String("Ei"),new String("Doos"),new String("Ui"),new String("Geit"),new String("Hand"),new String("Hout"),
-       new String("Huis"),new String("IJs"),new String("Hut"),new String("Kaas"),new String("Jas"),new String("Licht"),new String("Koek"),new String("Muis"),
+       new String("IJs"),new String("Hut"),new String("Kaas"),new String("Jas"),new String("Licht"),new String("Koek"),new String("Muis"),
        new String("Neus"),new String("Oog"),new String("Raket"),new String("Ring"),new String("Strand"),new String("Tak"),new String("Uil"),new String("Vuur"),
        new String("Zeep"),new String("Zon")};
       
