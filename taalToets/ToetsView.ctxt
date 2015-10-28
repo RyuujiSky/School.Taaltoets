@@ -15,4 +15,6 @@ comment6.params=woord
 comment6.target=void\ toonVraag(Text)
 comment7.params=
 comment7.target=java.lang.String\ getPlaatje()
-numComments=8
+comment8.params=t
+comment8.target=void\ counter(int)
+numComments=9
