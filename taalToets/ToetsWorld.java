@@ -7,8 +7,8 @@ public class ToetsWorld extends World
     private StartKnop myStartKnop;
     private ToetsStatus myToetsStatus;
     private ToetsView  myView;
-    private Logo myLogo;
-    private Logo myLogo2;
+    private Logo myLogoStart;
+    private Logo myLogoEind;
     private ResetKnop myResetKnop;
     private ToetsModel myModel;
     private Plaatje myPlaatje;
@@ -20,12 +20,12 @@ public class ToetsWorld extends World
         myKlok=new Klok();
         myStartKnop=new StartKnop();
         myResetKnop=new ResetKnop();
-        myLogo=new Logo(250,200);
-        myLogo2=new Logo(150,100);
+        myLogoStart=new Logo(250,200);
+        myLogoEind=new Logo(150,100);
         myView = new ToetsView(this);
         myModel = new ToetsModel(this);
         this.myToetsStatus=ToetsStatus.START;
-        this.myView.toonStartScherm(myStartKnop,myLogo);
+        this.myView.toonStartScherm(myStartKnop,myLogoStart);
         woord = new Text(myModel.getVolgendeVraag(),100);
     }
     
@@ -56,6 +56,7 @@ public class ToetsWorld extends World
             this.myKlok.startKlok();          
             myView.toonPlaatjes(myModel.getVragen());
             myView.toonVraag(woord);
+            myView.counter(myModel.getIndex());
         }
     }
     
@@ -66,7 +67,7 @@ public class ToetsWorld extends World
         {
             Vraag[] vragen = myModel.getVragen();
             this.myToetsStatus=ToetsStatus.END;
-            this.myView.toonEindScherm(vragen,myResetKnop,myLogo2);
+            this.myView.toonEindScherm(vragen,myResetKnop,myLogoEind);
         }        
     }
 
@@ -79,11 +80,13 @@ public class ToetsWorld extends World
             if(!myModel.isVolgendeVraag()==true)
             {
                 this.myToetsStatus=ToetsStatus.END;
-                this.myView.toonEindScherm(vragen,myResetKnop,myLogo2);
+                this.myView.toonEindScherm(vragen,myResetKnop,myLogoEind);
+                myView.counter(myModel.getIndex()+1);
             }
             else
             {
                 woord.setText(myModel.getVolgendeVraag(),100);
+                myView.counter(myModel.getIndex());
             }
         }
     }

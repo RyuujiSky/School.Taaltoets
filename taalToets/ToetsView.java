@@ -21,7 +21,7 @@ public class ToetsView
     public void toonStartScherm(StartKnop knop,Logo logo)
     {
         this.wisScherm();
-        this.w.addObject(new Text("Je krijgt zo tien plaatjes en een woorden te zien"),(int)this.w.getWidth()/2, 250);
+        this.w.addObject(new Text("Je krijgt zo tien plaatjes en een woord te zien"),(int)this.w.getWidth()/2, 250);
         this.w.addObject(new Text("Je drukt dan op het plaatje wat bij het woord past"),(int)this.w.getWidth()/2, 275);
         this.w.addObject(new Text("Na het tiende plaatje ga je naar je resultaten"),(int)this.w.getWidth()/2, 300);
         this.w.addObject(new Text("Druk op toets Starten"),(int)this.w.getWidth()/2, 375);
@@ -110,7 +110,13 @@ public class ToetsView
     
     public void counter(int t)
     {
-        
+       //this.w.removeObject(w.getObjects(Text.class));
+       this.w.removeObjects(w.getObjectsAt(60, 580, Text.class));
+       this.w.addObject(new Text("Vraag "+t+" / 10"),60,580);
+       if(t>10)
+       {
+           this.w.removeObjects(w.getObjectsAt(60, 580, Text.class));
+       }
     }
 
 }

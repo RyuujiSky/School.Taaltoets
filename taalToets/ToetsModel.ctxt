@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=boolean\ isVolgendeVraag()
 comment4.params=woord
 comment4.target=void\ zetAntwoord(java.lang.String)
-numComments=5
+comment5.params=
+comment5.target=int\ getIndex()
+numComments=6

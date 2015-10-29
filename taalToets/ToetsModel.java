@@ -54,4 +54,9 @@ public class ToetsModel
         vragen[index].zetAntwoord(woord);
         vragen[index].isGoed();
     }
+    
+    public int getIndex()
+    {
+        return this.index+1;
+    }
 }
