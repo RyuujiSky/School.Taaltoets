@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
+import java.awt.Color;
 
 public class ToetsView  
 {
@@ -41,6 +42,7 @@ public class ToetsView
         int t=1;
         int cijfer=0;
         String res;
+        Color color;
         this.wisScherm();
         this.w.addObject(new Text("vraag "),200,75);
             this.w.addObject(new Text("gegeven antwoord"),350,75);
@@ -51,17 +53,19 @@ public class ToetsView
         {
             if(vragen[i].isGoed()==true)
             {
-                res = "✔";
+                res = "\u2714";
+                color = new Color(34,139,34);
                 cijfer++;
             }
             else
             {
-                res = "✘";
+                res = "\u2718";
+                color = new Color(178,34,34);
             }
-            this.w.addObject(new Text("vraag "+t),200,h);
-            this.w.addObject(new Text(vragen[i].getAntwoord()),350,h);
-            this.w.addObject(new Text(vragen[i].getVraag()),500,h);
-            this.w.addObject(new Text(res),650,h);
+            this.w.addObject(new Text("vraag "+t,color),200,h);
+            this.w.addObject(new Text(vragen[i].getAntwoord(),color),350,h);
+            this.w.addObject(new Text(vragen[i].getVraag(),color),500,h);
+            this.w.addObject(new Text(res,color),650,h);
             h = h+25;
             t++;
         }

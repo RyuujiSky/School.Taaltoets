@@ -6,18 +6,28 @@ public class Text extends Actor
 {
   private String text;
   private int size;
-  
+  private Color color;
   public Text(String t,int s)
   {
       this.text=t;
       this.size=s;
+      this.color=Color.BLACK;
       updateImage();
   }
   
-   public Text(String t)
+  public Text(String t)
   {
       this.text=t;
       this.size=20;
+      this.color=Color.BLACK;
+      updateImage();
+  }
+  
+  public Text(String t,Color color)
+  {
+      this.text=t;
+      this.size=20;
+      this.color=color;
       updateImage();
   }
   
@@ -36,7 +46,8 @@ public class Text extends Actor
 
   private void updateImage()
   {
-    GreenfootImage image = new GreenfootImage(this.text,this.size,Color.BLACK,null);
+    GreenfootImage image = new GreenfootImage(this.text,this.size,this.color,null);
+    image.setColor(color);
     setImage(image);
   }
   

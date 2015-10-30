@@ -68,6 +68,7 @@ public class ToetsWorld extends World
             Vraag[] vragen = myModel.getVragen();
             this.myToetsStatus=ToetsStatus.END;
             this.myView.toonEindScherm(vragen,myResetKnop,myLogoEind);
+            myView.counter(myModel.getIndex()+1);
         }        
     }
 
